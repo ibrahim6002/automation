@@ -14,7 +14,7 @@ struct Hali {
 void HaliEkle(const Hali& yeniHali) {
     ofstream dosyaYaz("hali_otomasyonu.txt", ios::app);
     dosyaYaz << yeniHali.marka << " " << yeniHali.fiyat << endl;
-    cout << "Halý baþarýyla eklendi!" << endl;
+    cout << "HalÄ± baÅŸarÄ±yla eklendi!\n" << endl;
     dosyaYaz.close();
 }
 
@@ -23,10 +23,10 @@ void HaliListele() {
     string marka;
     float fiyat;
     	int i =0;
-	cout << "--------listenen halýlar--------"  << endl<<endl;
+	cout << "--------listenen halÄ±lar--------"  << endl<<endl;
     while (dosyaOku >> marka >> fiyat) {
     
-    	cout <<i+1<< ".halý"  << endl;
+    	cout <<i+1<< ".halÄ±"  << endl;
 
         cout << "Marka: " << marka << ", Fiyat: " << fiyat << endl;
         i++;
@@ -57,10 +57,10 @@ void HaliSil(const string& marka) {
     if (bulundu) {
         remove("hali_otomasyonu.txt");
         rename("temp.txt", "hali_otomasyonu.txt");
-        cout << "Halý baþarýyla silindi!" << endl;
+        cout << "HalÄ± baÅŸarÄ±yla silindi!\n" << endl;
     } else {
         remove("temp.txt");
-        cout << "Halý bulunamadý!" << endl;
+        cout << "HalÄ± bulunamadÄ±!" << endl;
     }
 }
 void HaliSat(const string& marka) {
@@ -83,15 +83,16 @@ void HaliSat(const string& marka) {
 
     dosyaOku.close();
     tempYaz.close();
+    
 
     if (bulundu) {
         remove("hali_otomasyonu.txt");
         rename("temp.txt", "hali_otomasyonu.txt");
-        cout << "Halý baþarýyla satýldý!" << endl;
+        cout << "HalÄ± baÅŸarÄ±yla satÄ±ldÄ±!" << endl;
         cout << "Toplam fiyat: " << toplamFiyat << endl;
     } else {
         remove("temp.txt");
-        cout << "Halý bulunamadý!" << endl;
+        cout << "HalÄ± bulunamadÄ±!" << endl;
     }
 }
 
@@ -120,10 +121,10 @@ void HaliDuzelt(const string& marka) {
     if (bulundu) {
         remove("hali_otomasyonu.txt");
         rename("temp.txt", "hali_otomasyonu.txt");
-        cout << "Halý baþarýyla düzeltildi!" << endl;
+        cout << "HalÄ± baÅŸarÄ±yla dÃ¼zeltildi!\n" << endl;
     } else {
         remove("temp.txt");
-        cout << "Halý bulunamadý!" << endl;
+        cout << "HalÄ± bulunamadÄ±!" << endl;
     }
 }
 
@@ -143,7 +144,7 @@ void HaliAra(const string& marka) {
     dosyaOku.close();
 
     if (!bulundu) {
-        cout << "Halý bulunamadý!" << endl;
+        cout << "HalÄ± bulunamadÄ±!" << endl;
     }
 }
 void FisleriGoster(const string& marka) {
@@ -152,15 +153,15 @@ void FisleriGoster(const string& marka) {
     float tempFiyat;
     float toplamFiyat = 0.0;
     int fisNumarasi = 1;
-cout << "--------Kalan halýlarýn fiþleri-------- "<< endl;
+cout << "--------Kalan halÄ±larÄ±n fiÅŸleri-------- "<< endl;
     while (dosyaOku >> tempMarka >> tempFiyat) {
     	
-        cout << "Fiþ Numarasý: " << fisNumarasi << endl;
+        cout << "FiÅŸ NumarasÄ±: " << fisNumarasi << endl;
         cout << "Marka: " <<tempMarka << ", Fiyat: " << tempFiyat<< endl;
         toplamFiyat += tempFiyat;
         fisNumarasi++;
     }
-    cout << "\nKalan halýlarýn Toplam fiyatlarý: " << toplamFiyat <<endl<< endl;
+    cout << "\nKalan halÄ±larÄ±n Toplam fiyatlarÄ±: " << toplamFiyat <<endl<< endl;
 
     dosyaOku.close();
 }
@@ -177,25 +178,25 @@ int main() {
 
     while (true) {
         system("cls");
-        cout << "----------- Halý Otomasyonu -----------" << endl;
-        cout << "|   1. Halý Ekle                      |" << endl;
-        cout << "|   2. Halý Listele                   |" << endl;
-        cout << "|   3. Halý Sil                       |" << endl;
-        cout << "|   4. Halý Sat                       |" << endl;
-        cout << "|   5. Halý Düzelt                    |" << endl;
-        cout << "|   6. Halý Ara                       |" << endl;
-        cout << "|   7. Satýlan Halýlarýn Fiþini Göster|" << endl;
-        cout << "|   8. Çýkýþ                          |" << endl;
+        cout << "----------- HalÄ± Otomasyonu -----------" << endl;
+        cout << "|   1. HalÄ± Ekle                      |" << endl;
+        cout << "|   2. HalÄ± Listele                   |" << endl;
+        cout << "|   3. HalÄ± Sil                       |" << endl;
+        cout << "|   4. HalÄ± Sat                       |" << endl;
+        cout << "|   5. HalÄ± DÃ¼zelt                    |" << endl;
+        cout << "|   6. HalÄ± Ara                       |" << endl;
+        cout << "|   7. SatÄ±lan HalÄ±larÄ±n FiÅŸini GÃ¶ster|" << endl;
+        cout << "|   8. Ã‡Ä±kÄ±ÅŸ                          |" << endl;
         cout << "---------------------------------------" <<endl;
-        cout << "Seçiminizi yapýn: ";
+        cout << "SeÃ§iminizi yapÄ±n: ";
         cin >> secim;
 
         switch (secim) {
             case 1:
                 system("cls");
-                cout << "Marka: ";
+                cout << "Marka giriniz: ";
                 cin >> marka;
-                cout << "Fiyat: ";
+                cout << "Fiyat giriniz: ";
                 cin >> fiyat;
                 HaliEkle({marka, fiyat});
                 break;
@@ -206,25 +207,27 @@ int main() {
             case 3:
                 system("cls");
                 HaliListele();
-                cout << "Silinecek halýnýn markasýný girin: ";
+                cout << "Silinecek halÄ±nÄ±n markasÄ±nÄ± girin: ";
                 cin >> marka;
                 HaliSil(marka);
                 break;
             case 4:
                 system("cls");
-                cout << "Satýlacak halýnýn markasýný girin: ";
+                HaliListele();
+                cout << "SatÄ±lacak halÄ±nÄ±n markasÄ±nÄ± girin: ";
                 cin >> marka;
                 HaliSat(marka);
                 break;
             case 5:
                 system("cls");
-                cout << "Düzeltilecek halýnýn markasýný girin: ";
+                 HaliListele();
+                cout << "DÃ¼zeltilecek halÄ±nÄ±n markasÄ±nÄ± girin: ";
                 cin >> marka;
                 HaliDuzelt(marka);
                 break;
             case 6:
                 system("cls");
-                cout << "Aranacak halýnýn markasýný girin: ";
+                cout << "Aranacak halÄ±nÄ±n markasÄ±nÄ± girin: ";
                 cin >> marka;
                 HaliAra(marka);
                 break;
@@ -235,10 +238,10 @@ int main() {
             case 8:
                 return 0;
             default:
-                cout << "Geçersiz seçim!" << endl;
+                cout << "GeÃ§ersiz seÃ§im!" << endl;
         }
 
-        cout << "Devam etmek için bir tuþa basýn...";
+        cout << "Devam etmek iÃ§in bir tuÅŸa basÄ±n...";
         cin.ignore();
         cin.get();
     }
